@@ -1,0 +1,7 @@
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\bin\Debug\netcoreapp1.1\DTO.deps.json
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\bin\Debug\netcoreapp1.1\DTO.dll
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\bin\Debug\netcoreapp1.1\DTO.pdb
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\obj\Debug\netcoreapp1.1\DTO.csprojResolveAssemblyReference.cache
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\obj\Debug\netcoreapp1.1\DTO.AssemblyInfo.cs
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\obj\Debug\netcoreapp1.1\DTO.dll
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DTO\obj\Debug\netcoreapp1.1\DTO.pdb
