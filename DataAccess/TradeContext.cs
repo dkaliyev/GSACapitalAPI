@@ -17,9 +17,5 @@ namespace DataAccess
             optionsBuilder.UseSqlServer(@"Server=(localdb)\v11.0;Initial Catalog=MyDatabase;Trusted_Connection=True;");
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Strategy>().ToTable("Strategy");
-        //}
     }
 }

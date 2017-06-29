@@ -5,13 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccess;
 using DataAccess.Entities;
+using DTO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Utilities;
+using Utilities.Calculators;
 using Utilities.Mappers;
 
 namespace GSACapitalAPI
@@ -37,7 +38,9 @@ namespace GSACapitalAPI
         {
             // Add framework services.
             services.AddMvc();
-            //services.AddDbContext<TradeContext>(options=>options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=False;"));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ICalculator<Tuple<List<Capital>, List<ProfitNLoss>, string>, List<CompoundDailyReturnDTO>>, CompoundDailyReturnCalculator>();
+            services.AddTransient<ICalculator<List<ProfitNLoss>, List<CumulativePNL>>, CumulativePnLCalculator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,51 +74,55 @@ namespace GSACapitalAPI
             var propertiesMapper = new StrategyMapper();
             var propertiesDTO = propertiesMapper.ToDTO(properties.Skip(1).ToList());
 
-            using (var ctx = new TradeContext())
-            {
-                ctx.Database.EnsureCreated();
+            var uow = new UnitOfWork();
 
+            var strategiesRepo = uow.GetRepository<Strategy>();
+
+            var pnlRepo = uow.GetRepository<ProfitNLoss>();
+
+            var capitalRepo = uow.GetRepository<Capital>();
+
+            var count = strategiesRepo.GetQuery().Count();
+
+            if (count == 0)
+            {
                 List<Strategy> strategies;
 
-                if (!ctx.Strategy.Any())
+                foreach (var property in propertiesDTO)
                 {
-                    foreach (var property in propertiesDTO)
+                    var strategy = new Strategy()
                     {
-                        var strategy = new Strategy()
-                        {
-                            Region = property.Region,
-                            Name = property.Name
-                        };
+                        Region = property.Region,
+                        Name = property.Name
+                    };
 
-                        ctx.Strategy.Add(strategy);
-                    }
-                    ctx.SaveChanges();
-
-                    strategies = ctx.Strategy.ToList();
-
-                    foreach (var capitalDTO in capitalDTOs)
-                    {
-                        var capitalEntity = new Capital();
-                        capitalEntity.ID = Guid.NewGuid();
-                        capitalEntity.Value = capitalDTO.Value;
-                        capitalEntity.Date = capitalDTO.Date;
-                        capitalEntity.Strategy = strategies.Where(x => x.Name == capitalDTO.Name).First();
-                        ctx.Capitals.Add(capitalEntity);
-                    }
-
-                    foreach (var pnlDTO in pnlDTOs)
-                    {
-                        var capitalEntity = new ProfitNLoss();
-                        capitalEntity.ID = Guid.NewGuid();
-                        capitalEntity.Value = pnlDTO.Value;
-                        capitalEntity.Date = pnlDTO.Date;
-                        capitalEntity.Strategy = strategies.Where(x => x.Name == pnlDTO.Strategy).First();
-                        ctx.ProfitNLoss.Add(capitalEntity);
-                    }
-
-                    ctx.SaveChanges();
+                    strategiesRepo.Create(strategy);
                 }
-                
+
+                uow.Commit();
+
+                strategies = strategiesRepo.GetQuery().ToList();
+
+                foreach (var capitalDTO in capitalDTOs)
+                {
+                    var capitalEntity = new Capital();
+                    capitalEntity.ID = Guid.NewGuid();
+                    capitalEntity.Value = capitalDTO.Value;
+                    capitalEntity.Date = capitalDTO.Date;
+                    capitalEntity.Strategy = strategies.Where(x => x.Name == capitalDTO.Name).First();
+                    capitalRepo.Create(capitalEntity);
+                }
+
+                foreach (var pnlDTO in pnlDTOs)
+                {
+                    var capitalEntity = new ProfitNLoss();
+                    capitalEntity.ID = Guid.NewGuid();
+                    capitalEntity.Value = pnlDTO.Value;
+                    capitalEntity.Date = pnlDTO.Date;
+                    capitalEntity.Strategy = strategies.Where(x => x.Name == pnlDTO.Strategy).First();
+                    pnlRepo.Create(capitalEntity);
+                }
+                uow.Commit();
             }
 
         }

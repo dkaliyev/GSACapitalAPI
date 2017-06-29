@@ -1,7 +1,7 @@
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\bin\Debug\netcoreapp1.1\DataAccess.deps.json
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\bin\Debug\netcoreapp1.1\DataAccess.dll
-d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.AssemblyInfo.cs
-d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.csprojResolveAssemblyReference.cache
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\bin\Debug\netcoreapp1.1\DataAccess.pdb
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.AssemblyInfo.cs
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.dll
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.pdb
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\DataAccess\obj\Debug\netcoreapp1.1\DataAccess.csprojResolveAssemblyReference.cache

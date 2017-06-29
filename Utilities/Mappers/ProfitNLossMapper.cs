@@ -23,18 +23,15 @@ namespace Utilities.Mappers
                     continue;
                 }
 
-                
-
                 for (int i = 1; i < headerCount; i++)
                 {
                     var capital = new ProfitNLossDTO();
 
                     capital.Date = DateTime.Parse(cols[0]);
-                    capital.Value = decimal.Parse(cols[i]);
+                    capital.Value = long.Parse(cols[i]);
                     capital.Strategy = headerCols[i];
                     result.Add(capital);
                 }
-
                 
             }
 

@@ -1,9 +1,11 @@
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\Utilities.deps.json
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\Utilities.dll
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\Utilities.pdb
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DataAccess.dll
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DTO.dll
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DataAccess.pdb
+d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DTO.pdb
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\obj\Debug\netcoreapp1.1\Utilities.csprojResolveAssemblyReference.cache
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\obj\Debug\netcoreapp1.1\Utilities.AssemblyInfo.cs
-d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\Utilities.pdb
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\obj\Debug\netcoreapp1.1\Utilities.dll
 d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\obj\Debug\netcoreapp1.1\Utilities.pdb
-d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DTO.dll
-d:\Library\Documents\Visual Studio 2017\Projects\GSACapitalAPI\Utilities\bin\Debug\netcoreapp1.1\DTO.pdb

@@ -18,6 +18,7 @@ namespace GSACapitalAPI
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
+                .UseUrls("http://localhost:8000")
                 .Build();
 
             host.Run();

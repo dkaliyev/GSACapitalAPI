@@ -30,7 +30,7 @@ namespace Utilities.Mappers
                     var capital = new CapitalDTO();
 
                     capital.Date = DateTime.Parse(cols[0]);
-                    capital.Value = decimal.Parse(cols[i]);
+                    capital.Value = long.Parse(cols[i]);
                     capital.Name = headerCols[i];
                     result.Add(capital);
                 }
